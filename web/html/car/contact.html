@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Sale Website</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+ background-image: url("a.jpg"); /* The image used */
+ 
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+
+        .foot {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+position: relative;
+  top:390px;
+        }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+section {
+    background-color: ;
+    color:#fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info address {
+    margin-top: 20px;
+}
+
+.contact-info a {
+    color: #007BFF;
+}
+
+.contact-form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.active {
+  background-color: #04AA6D;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+ .ab{
+
+     position:relative;
+  left:700px;
+}
+.b{color:white;}
+
+  </style>
+</head>
+<body>
+   <header>
+  
+           <div> <ul><div><li style= "font-size:50px;">Car dhekho<li></div>
+  <div class="ab"> <li><a href="home.html">Home</a></li>
+                <li><a href="page.html">Cars for Sale</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul></div>
+
+        </header>
+
+    <section class="contact-info">
+        <h2>Contact Information</h2>
+        <address>
+            <p><strong>Car Sales</strong></p>
+            <p>123 Main Street</p>
+            <p>City, State, ZIP Code</p>
+            <p>Email: <a href="mailto:info@carsales.com">info@carsales.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
+        </address>
+    </section>
+
+    <section class="contact-form">
+        <h2>Contact Form</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Car Sales. All rights reserved.</p>
+    </footer>
+</body>
+</html>

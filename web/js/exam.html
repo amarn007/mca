@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<script>
+function quiz(){
+     
+    var a=0
+  
+    if(document.getElementById("num1").checked)
+     {
+      
+       a=a+1
+
+     }
+  
+     if(document.getElementById("num2").checked)
+     {
+       
+       a=a+1
+
+     }
+
+       if(document.getElementById("num3").checked)
+     {
+
+       a=a+1
+
+     }
+
+     if(document.getElementById("num4").checked)
+     {
+
+       a=a+1
+
+     }
+
+  
+     if(document.getElementById("num5").checked)
+     {
+
+       a=a+1
+
+     }
+
+alert("your score is :"+a)
+
+}
+</script>
+<body>
+<h1>Online exam</h1>
+   <p>1. How many hours are there in a day?<br>
+   <input type="radio" name="1" value="24" id="num1" />24<br>
+   <input type="radio" name="1" value="27" />27<br>
+    <input type="radio" name="1" value="26" />26<br>
+   <input type="radio" name="1" value="48" />48<br><hr>
+    <p>2.How many letters are there in the English alphabet?</p><br>
+      <input type="radio" name="2" value="24" />24<br>
+   <input type="radio"  name="2" value="27" />27<br>
+    <input type="radio" name="2" value="26"  id="num2" />26<br>
+   <input type="radio" name="2" value="48" />48<br><hr>
+
+   <p>3.How many minutes are there in an hour?</p><br>
+      <input type="radio" name="3"  value="89" />89<br>
+   <input type="radio" name="3"   value="78" />78<br>
+    <input type="radio" name="3"   value="60"  id="num3" />60<br>
+   <input type="radio" name="3"   value="48" />48<br><hr>
+
+
+<p>4.Rainbow consist of how many colours?</p><br>
+      <input type="radio" name="4"   value="2" />2<br>
+   <input type="radio" name="4" value="9" />9<br>
+    <input type="radio" name="4" value="7"  id="num4" />7<br>
+   <input type="radio" name="4" value="8" />8<br><hr>
+
+
+<p>5.How many days are there in a week?</p><br>
+      <input type="radio" name="5"  value="9" />9<br>
+   <input type="radio" name="5" value="10" />10<br>
+    <input type="radio" name="5"  value="7"  id="num5" />7<br>
+   <input type="radio" name="5"  value="8" />8<br><hr>
+
+   <input type="button" id = "tutorial" value="Click" onclick = "quiz()" />
+   <hr />
+   <label id = "label"></label>
+   <script>
+     
+   </script>
+</body>
+</html>
+</html>

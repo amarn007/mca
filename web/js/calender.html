@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Calendar</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function generateCalendar(year, month) {
+    // Get the first day of the month
+    const firstDay = new Date(year, month, 1);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    // Create a table for the calendar
+    let calendarHTML = '<table>';
+    calendarHTML += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+
+    // Fill in the days of the month in the table
+    let dayOfWeek = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    calendarHTML += '<tr>';
+    for (let i = 0; i < dayOfWeek; i++) {
+      calendarHTML += '<td></td>';
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      calendarHTML += `<td>${day}</td>`;
+      if (++dayOfWeek === 7) {
+        calendarHTML += '</tr><tr>';
+        dayOfWeek = 0;
+      }
+    }
+
+    calendarHTML += '</tr></table>';
+
+    // Display the calendar in the HTML body
+    document.body.innerHTML = calendarHTML;
+  }
+
+  // Example: Generate calendar for January 2024
+  generateCalendar(2024, 0);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Sale Website</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+ background-image: url("a.jpg"); /* The image used */
+ 
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        section.car-listings {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .car-card {
+            background-color:#e1f5f2;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            height:300px;
+            width:200px;
+        }
+
+        .car-card img {
+            max-width: 100%;
+        }
+
+        .foot {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+position: relative;
+  top:300px;
+        }
+<!-- HTML !-->
+<button class="button-25" role="button">Button 25</button>
+
+/* CSS */
+.button-25{
+  background-color:#78E6BA;
+  background-image: linear-gradient(#37ADB2, #329CA0);
+  border: 1px solid #2A8387;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 11px 15px 12px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.active {
+  background-color: #04AA6D;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+ .ab{
+
+     position:relative;
+  left:500px;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+  <nav>
+           <div> <ul><div><li style= "font-size:50px;">Car dhekho<li></div>
+  <div class="ab"> <li><a href="home.html">Home</a></li>
+                <li><a href="page.html">Cars for Sale</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul></div>
+
+        </nav>
+    </header><center><br>
+<div style="color:white;">check out the<br><h2>Featured cars</h2></div></center>
+<table><tr><td>
+    <section class="car-listings">
+        <div class="car-card">
+            <img src="b.jpg" width="200px" height="150px"></img><br>
+            <h2>Porsche</h2>
+            <p>Price: $20,000</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+            <button>View Details</button></div>
+        </div>
+
+        <!-- Repeat the car card for multiple listings -->
+    </section></td><td>
+ <section class="car-listings">
+        <div class="car-card">
+            <img src="c.jpg" width="200px" height="150px"></img><br>
+            <h2>lambhorghini</h2>
+            <p>Price: $20,000</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+            <button>View Details</button></div>
+        </div>
+
+        <!-- Repeat the car card for multiple listings -->
+    </section></td></tr></table>
+
+
+    <div class="foot">
+        &copy; 2023 Car Sale Website
+    </div>
+<div>
+</html>

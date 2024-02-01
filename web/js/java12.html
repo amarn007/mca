@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String and Math Functions </title>
+</head>
+<body>
+    <h1>String and Math Functions Demo</h1>
+
+    <script>
+       
+        function printNameAndLength(name) {         
+            document.write("<p>Hi, my name is " + name + ".</p>");
+            var lengthOfName = name.length;
+            document.write("<p>The length of my name is: " + lengthOfName + " characters.</p>");
+        }
+      
+        function mathObjectDemo() {
+          
+            document.write("<p>Value of PI: " + Math.PI + "</p>");
+
+            var roundedNumber = Math.round(5.67);
+            document.write("<p>Rounded value of 5.67: " + roundedNumber + "</p>");
+
+            // Example of raising a number to the power
+            var powerValue = Math.pow(2, 3);
+            document.write("<p>2 raised to the power of 3: " + powerValue + "</p>");
+        }
+       
+        var myName = "John";
+        printNameAndLength(myName);
+       
+        document.write("<hr>");
+
+        mathObjectDemo();
+    </script>
+</body>
+</html>
