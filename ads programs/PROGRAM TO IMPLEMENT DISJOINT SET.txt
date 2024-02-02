@@ -1,0 +1,71 @@
+PROGRAM TO IMPLEMENT DISJOINT SET
+
+#include <stdio.h>
+#include <stdlib.h>
+struct DisjointSet {
+    int *parent;
+    int *rank;
+    int size;
+};
+struct DisjointSet* createSet(int size);
+int findSet(struct DisjointSet* ds, int element);
+void unionSets(struct DisjointSet* ds, int x, int y);
+void printSets(struct DisjointSet* ds);
+int main() {
+    int size;
+    printf("Enter the size of the disjoint set: ");
+    scanf("%d", &size);
+    struct DisjointSet* ds = createSet(size);
+    int x, y;
+    char choice;
+    do {
+        printf("Enter two elements to union (separated by space): ");
+        scanf("%d %d", &x, &y);
+        unionSets(ds, x, y);
+        printf("Sets after union operation:\n");
+        printSets(ds);
+        printf("Do you want to perform another union operation? (y/n): ");
+        scanf(" %c", &choice);
+    } while (choice == 'y' || choice == 'Y');
+       for (int i = 0; i < size; i++) {
+        printf("Element %d belongs to set with representative %d\n", i, findSet(ds, i));
+    }
+    free(ds->parent);
+    free(ds->rank);
+    free(ds);
+    return 0;
+}
+struct DisjointSet* createSet(int size) {
+    struct DisjointSet* ds = (struct DisjointSet*)malloc(sizeof(struct DisjointSet));
+    ds->parent = (int*)malloc(size * sizeof(int));
+    ds->rank = (int*)malloc(size * sizeof(int));
+    ds->size = size;
+    for (int i = 0; i < size; i++) {
+        ds->parent[i] = i;
+        ds->rank[i] = 0;
+    }
+    return ds;
+}
+int findSet(struct DisjointSet* ds, int element) {
+    if (ds->parent[element] != element) {
+        ds->parent[element] = findSet(ds, ds->parent[element]);
+    }
+    return ds->parent[element];
+}
+void unionSets(struct DisjointSet* ds, int x, int y) {
+    int rootX = findSet(ds, x);
+    int rootY = findSet(ds, y);
+    if (ds->rank[rootX] < ds->rank[rootY]) {
+        ds->parent[rootX] = rootY;
+ } else if (ds->rank[rootX] > ds->rank[rootY]) 
+       ds->parent[rootY] = rootX;
+    } else {
+        ds->parent[rootY] = rootX;
+        ds->rank[rootX]++;
+    }
+}
+void printSets(struct DisjointSet* ds) {
+    for (int i = 0; i < ds->size; i++) {
+        printf("Element %d belongs to set with representative %d\n", i, findSet(ds, i));
+    }
+}

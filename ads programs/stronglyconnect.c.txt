@@ -1,0 +1,128 @@
+ PROGRAM TO IMPLEMENT STRONGLY CONNECTED COMPONENTS
+
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 100
+struct Node {
+    int value;
+    struct Node* next;
+};
+struct Graph {
+    int vertices;
+    struct Node** adjacencyList;
+    int* visited;
+};
+struct Stack {
+    int top;
+    int capacity;
+    int* array;
+};
+struct Graph* createGraph(int vertices);
+struct Node* createNode(int value);
+void addEdge(struct Graph* graph, int src, int dest);
+struct Stack* createStack(int capacity);
+void push(struct Stack* stack, int item);
+int pop(struct Stack* stack);
+int isEmpty(struct Stack* stack);
+void DFS(struct Graph* graph, int vertex, struct Stack* stack);
+void DFSForSCC(struct Graph* graph, int vertex);
+int main() {
+    int vertices, edges, i, src, dest;
+    printf("Enter the number of vertices: ");
+    scanf("%d", &vertices);
+    struct Graph* graph = createGraph(vertices);
+    printf("Enter the number of edges: ");
+    scanf("%d", &edges);
+    printf("Enter the edges (source destination):\n");
+    for (i = 0; i < edges; i++) {
+        scanf("%d %d", &src, &dest);
+        addEdge(graph, src, dest);
+    }
+    struct Stack* stack = createStack(vertices);
+    for (i = 0; i < vertices; i++) {
+        if (graph->visited[i] == 0) {
+            DFS(graph, i, stack);
+        }
+    }
+    for (i = 0; i < vertices; i++) {
+        graph->visited[i] = 0;
+    }
+    printf("Strongly Connected Components:\n");
+    while (!isEmpty(stack)) {
+        int vertex = pop(stack);
+        if (graph->visited[vertex] == 0) {
+            DFSForSCC(graph, vertex);
+            printf("\n");
+        }
+    }
+    free(graph->visited);
+    free(graph->adjacencyList);
+    free(graph);
+    free(stack->array);
+    free(stack);
+    return 0;
+}
+struct Graph* createGraph(int vertices) {
+    int i;
+    struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+    graph->vertices = vertices;
+    graph->adjacencyList = (struct Node*)malloc(vertices * sizeof(struct Node));
+    graph->visited = (int*)malloc(vertices * sizeof(int));
+    for (i = 0; i < vertices; i++) {
+        graph->adjacencyList[i] = NULL;
+        graph->visited[i] = 0;
+    }
+    return graph;
+}
+struct Node* createNode(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->value = value;
+    newNode->next = NULL;
+    return newNode;
+}
+void addEdge(struct Graph* graph, int src, int dest) {
+    struct Node* newNode = createNode(dest);
+    newNode->next = graph->adjacencyList[src];
+    graph->adjacencyList[src] = newNode;
+}
+struct Stack* createStack(int capacity) {
+    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+    stack->top = -1;
+    stack->capacity = capacity;
+    stack->array = (int*)malloc(capacity * sizeof(int));
+    return stack;
+}
+void push(struct Stack* stack, int item) {
+    stack->array[++stack->top] = item;
+}
+int pop(struct Stack* stack) {
+    if (isEmpty(stack))
+        return -1;
+    return stack->array[stack->top--];
+}
+int isEmpty(struct Stack* stack) {
+    return stack->top == -1;
+}
+void DFS(struct Graph* graph, int vertex, struct Stack* stack) {
+    struct Node* temp = graph->adjacencyList[vertex];
+    graph->visited[vertex] = 1;
+    while (temp != NULL) {
+        int adjVertex = temp->value;
+        if (graph->visited[adjVertex] == 0) {
+            DFS(graph, adjVertex, stack);
+        }
+        temp = temp->next;
+    }
+    push(stack, vertex);
+}
+void DFSForSCC(struct Graph* graph, int vertex) {
+    graph->visited[vertex] = 1;
+    printf("%d ", vertex);
+    struct Node* temp = graph->adjacencyList[vertex];
+    while (temp != NULL) {
+        int adjVertex = temp->value;
+        if (graph->visited[adjVertex] == 0) {
+            DFSForSCC(graph, adjVertex);
+        }
+        temp = temp->next;
+}

@@ -1,0 +1,47 @@
+PROGRAM TO IMPLEMENT SET OPERATION USING BIT STRING
+
+#include <stdio.h>
+void setUnion(char set1[], char set2[], char result[], int size) {
+    for (int i = 0; i < size; i++) {
+        if (set1[i] == '1' || set2[i] == '1') {
+            result[i] = '1';
+        } else {
+            result[i] = '0';
+        }
+    }
+    result[size] = '\0';
+}
+void setIntersection(char set1[], char set2[], char result[], int size) {
+    for (int i = 0; i < size; i++) {
+        if (set1[i] == '1' && set2[i] == '1') {
+            result[i] = '1';
+        } else {
+            result[i] = '0';
+        }
+    }
+    result[size] = '\0';
+}
+void setDifference(char set1[], char set2[], char result[], int size) {
+    for (int i = 0; i < size; i++) {
+        if (set1[i] == '1' && set2[i] == '0') {
+            result[i] = '1';
+        } else {
+            result[i] = '0';
+        }
+   }
+    result[size] = '\0';
+}
+int main() {
+    char set1[100], set2[100], result[100];
+    printf("Enter set1: ");
+    scanf("%s", set1);
+    printf("Enter set2: ");
+    scanf("%s", set2);
+    setUnion(set1, set2, result, sizeof(set1) / sizeof(set1[0]) - 1);
+    printf("union\n%s\n", result);
+    setIntersection(set1, set2, result, sizeof(set1) / sizeof(set1[0]) - 1);
+    printf("intersection\n%s\n", result);
+    setDifference(set1, set2, result, sizeof(set1) / sizeof(set1[0]) - 1);
+    printf("set difference\n%s\n", result);
+    return 0;
+}

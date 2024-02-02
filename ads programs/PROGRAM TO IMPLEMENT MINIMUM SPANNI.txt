@@ -1,0 +1,69 @@
+PROGRAM TO IMPLEMENT MINIMUM SPANNING TREE USING KRUSKAL’S ALGORITHM
+
+#include <stdio.h>
+#include <stdlib.h>
+struct Edge {
+    int src, dest, weight;
+}
+struct Graph {
+    int V, E;
+    struct Edge* edges;
+}
+struct Graph* createGraph(int V, int E) {
+    struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+    graph->V = V;
+    graph->E = E;
+    graph->edges = (struct Edge*)malloc(E * sizeof(struct Edge));
+    return graph;
+}
+int findSet(int parent[], int i) {
+    if (parent[i] == -1)
+        return i;
+    return findSet(parent, parent[i]);
+}
+void unionSets(int parent[], int x, int y) {
+    int rootX = findSet(parent, x);
+    int rootY = findSet(parent, y);
+    parent[rootX] = rootY;
+}
+int compareEdges(const void* a, const void* b) {
+   return ((struct Edge*)a)->weight - ((struct Edge*)b)->weight;
+}
+void kruskalMST(struct Graph* graph) {
+    int* parent = (int*)malloc(graph->V * sizeof(int));
+    for (int i = 0; i < graph->V; i++)
+        parent[i] = -1;
+    qsort(graph->edges, graph->E, sizeof(graph->edges[0]), compareEdges);
+    struct Edge* result = (struct Edge*)malloc((graph->V - 1) * sizeof(struct Edge));
+    int e = 0, i = 0;
+    while (e < graph->V - 1 && i < graph->E) {
+        struct Edge nextEdge = graph->edges[i++];
+        int x = findSet(parent, nextEdge.src);
+        int y = findSet(parent, nextEdge.dest);
+
+        if (x != y) {
+            result[e++] = nextEdge;
+            unionSets(parent, x, y);
+        }
+    }
+    printf("Edges in the Minimum Spanning Tree:\n");
+    for (i = 0; i < e; ++i)
+        printf("%d -- %d  Weight: %d\n", result[i].src, result[i].dest, result[i].weight);
+    free(parent);
+    free(result);
+}
+int main() {
+    int V, E;
+    printf("Enter the number of vertices: ");
+    scanf("%d", &V);
+    printf("Enter the number of edges: ");
+    scanf("%d", &E);
+    struct Graph* graph = createGraph(V, E);
+    printf("Enter edges (src dest weight):\n");
+    for (int i = 0; i < E; ++i)
+        scanf("%d %d %d", &graph->edges[i].src, &graph->edges[i].dest, &graph->edges[i].weight);
+    kruskalMST(graph);
+    free(graph->edges);
+    free(graph);
+    return 0;
+}
