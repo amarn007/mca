@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:gravity="center"
+        android:text="Calculator"
+        android:textColor="#DE5757"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="411dp"
+        android:layout_height="90dp"
+        android:background="#E0E0E0"
+        android:gravity="start"
+        android:padding="16dp"
+        android:text=""
+        android:textSize="32sp" />
+
+    <GridLayout
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="5">
+
+        <!-- Number Buttons -->
+        <Button
+            android:onClick="onNumberClick"
+            android:text="1" />
+
+        <Button
+            android:onClick="onNumberClick"
+            android:text="2" />
+
+        <Button
+            android:layout_width="108dp"
+            android:onClick="onNumberClick"
+            android:text="3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:onClick="onOperationClick"
+            android:text="+" />
+
+        <Button
+            android:onClick="onNumberClick"
+            android:text="4" />
+
+        <Button
+            android:onClick="onNumberClick"
+            android:text="5" />
+
+        <Button
+            android:layout_width="101dp"
+            android:onClick="onNumberClick"
+            android:text="6" />
+
+        <Button
+            android:onClick="onOperationClick"
+            android:text="-" />
+
+        <Button
+            android:onClick="onNumberClick"
+            android:text="7" />
+
+        <Button
+            android:onClick="onNumberClick"
+            android:text="8" />
+
+        <Button
+            android:layout_width="105dp"
+            android:onClick="onNumberClick"
+            android:text="9" />
+
+        <Button
+            android:onClick="onOperationClick"
+            android:text="*" />
+
+        <Button
+            android:onClick="onClearClick"
+            android:text="C" />
+
+        <Button
+            android:onClick="onNumberClick"
+            android:text="0" />
+
+        <Button
+            android:layout_width="110dp"
+            android:onClick="onEqualClick"
+            android:text="=" />
+
+        <Button
+            android:onClick="onOperationClick"
+            android:text="/" />
+
+    </GridLayout>
+</LinearLayout>
