@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/ET_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="ID"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/ET_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/ET_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Place"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/B_SUBMIT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Insert" />
+
+        <Button
+            android:id="@+id/B_sel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select" />
+
+        <Button
+            android:id="@+id/B_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UPDATE" />
+
+        <Button
+            android:id="@+id/B_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DELETE" />
+
+        <Button
+            android:id="@+id/B_clear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CLEAR" />
+
+        <TextView
+            android:id="@+id/T_id"
+            android:layout_width="match_parent"
+            android:layout_height="46dp" />
+
+        <TextView
+            android:id="@+id/T_name"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <TextView
+            android:id="@+id/T_place"
+            android:layout_width="match_parent"
+            android:layout_height="47dp" />
+
+    </LinearLayout>
+</LinearLayout>
